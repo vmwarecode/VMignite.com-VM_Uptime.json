@@ -1,0 +1,12 @@
+{"076754ce-12ad-4872-ad94-6664503263e1": {
+   "resourceKinds": [{
+      "resourceKindKey": "VirtualMachine",
+      "adapterKindKey": "VMWARE"
+   }],
+   "modificationTime": 1597798323877,
+   "name": "VMignite.com - VM Uptime",
+   "formula": "count(${this, metric=summary|runtime|powerState, where=\"summary|runtime|powerState contains Powered On\"}) * ceil( min([ max([${this, metric=sys|osUptime_latest}, ${this, metric=mem|workload} , ${this, metric=virtualDisk:Aggregate of all instances|commandsAveraged_average} , ${this, metric=net|transmitted_average}                   ]) , 1])) * Min([ 300 , ${this, metric=sys|osUptime_latest}]) / 3",
+   "description": "",
+   "unitId": "",
+   "modifiedBy": "340a8589-9ead-4e01-9f11-0429c53ff388"
+}}
